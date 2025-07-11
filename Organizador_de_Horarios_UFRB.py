@@ -35,7 +35,7 @@ turnos = {'M': 'Manhã', 'T': 'Tarde', 'N': 'Noite'}
 horarios_turno = {
     'M': {'1': '7 às 8', '2': '8 às 9', '3': '9 às 10', '4': '10 às 11', '5': '11 às 12'},
     'T': {'1': '13 às 14', '2': '14 às 15', '3': '15 às 16', '4': '16 às 17', '5': '17 às 18'},
-    'N': {'1': '18 às 19', '2': '19 às 20', '3': '20 às 21', '4': '21 às 22', '5': '22 às 23'}
+    'N': {'1': '18:30 às 19:30', '2': '19:30 às 20:30', '3': '20:30 às 21:30', '4': '21:30 às 22:30'}
 }
 
 # --- Funções Utilitárias ---
@@ -95,7 +95,7 @@ def criar_grade_horaria(df_horarios_atual):
     ws.title = "Grade Horária"
 
     # Ajuste de dimensões
-    for i in range(1, 20):
+    for i in range(1, 19):
         for j in range(1, 8):
             cel = ws.cell(row=i, column=j)
             cel.font = fonte_padrao
@@ -120,7 +120,7 @@ def criar_grade_horaria(df_horarios_atual):
     turnos_linhas = {
         "MANHÃ": (2, range(3, 8), ["7 às 8", "8 às 9", "9 às 10", "10 às 11", "11 às 12"]),
         "TARDE": (8, range(9, 14), ["13 às 14", "14 às 15", "15 às 16", "16 às 17", "17 às 18"]),
-        "NOITE": (14, range(15, 20), ["18 às 19", "19 às 20", "20 às 21", "21 às 22", "22 às 23"])
+        "NOITE": (14, range(15, 19), ["18:30 às 19:30", "19:30 às 20:30", "20:30 às 21:30", "21:30 às 22:30"])
     }
 
     for turno, (linha_turno, linhas_horarios, horarios) in turnos_linhas.items():
